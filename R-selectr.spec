@@ -4,17 +4,18 @@
 #
 Name     : R-selectr
 Version  : 0.4.1
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/selectr_0.4-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/selectr_0.4-1.tar.gz
 Summary  : Translate CSS Selectors to XPath Expressions
 Group    : Development/Tools
 License  : BSD-3-Clause
-Requires: R-XML
-Requires: R-stringi
-Requires: R-xml2
+Requires: R-cli
+Requires: R-withr
 BuildRequires : R-XML
+BuildRequires : R-cli
 BuildRequires : R-stringi
+BuildRequires : R-withr
 BuildRequires : R-xml2
 BuildRequires : buildreq-R
 
@@ -30,10 +31,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552846450
+export SOURCE_DATE_EPOCH=1552855450
 
 %install
-export SOURCE_DATE_EPOCH=1552846450
+export SOURCE_DATE_EPOCH=1552855450
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
