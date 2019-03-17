@@ -4,7 +4,7 @@
 #
 Name     : R-selectr
 Version  : 0.4.1
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/selectr_0.4-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/selectr_0.4-1.tar.gz
 Summary  : Translate CSS Selectors to XPath Expressions
@@ -16,13 +16,11 @@ Requires: R-xml2
 BuildRequires : R-XML
 BuildRequires : R-stringi
 BuildRequires : R-xml2
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
-expression. This allows us to use CSS selectors when working with
-  the XML package as it can only evaluate XPath expressions. Also
-  provided are convenience functions useful for using CSS selectors on
-  XML nodes. This package is a port of the Python package 'cssselect'
+# selectr
+[![License (3-Clause BSD)](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause) [![Build Status](https://travis-ci.org/sjp/selectr.svg)](https://travis-ci.org/sjp/selectr) [![CRAN version](https://www.r-pkg.org/badges/version/selectr)](https://cran.r-project.org/package=selectr) [![codecov](https://codecov.io/gh/sjp/selectr/branch/master/graph/badge.svg)](https://codecov.io/gh/sjp/selectr) ![Downloads per month](https://cranlogs.r-pkg.org/badges/last-month/selectr)
 
 %prep
 %setup -q -c -n selectr
@@ -32,11 +30,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523018171
+export SOURCE_DATE_EPOCH=1552846450
 
 %install
+export SOURCE_DATE_EPOCH=1552846450
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523018171
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -71,8 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library selectr|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  selectr || :
 
 
 %files
@@ -100,3 +97,24 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/selectr/help/selectr.rdx
 /usr/lib64/R/library/selectr/html/00Index.html
 /usr/lib64/R/library/selectr/html/R.css
+/usr/lib64/R/library/selectr/tests/test-all.R
+/usr/lib64/R/library/selectr/tests/testthat/test-main.R
+/usr/lib64/R/library/selectr/tests/testthat/test-method-registration.R
+/usr/lib64/R/library/selectr/tests/testthat/test-parse-errors.R
+/usr/lib64/R/library/selectr/tests/testthat/test-parser.R
+/usr/lib64/R/library/selectr/tests/testthat/test-pseudo.R
+/usr/lib64/R/library/selectr/tests/testthat/test-querySelector-XML.R
+/usr/lib64/R/library/selectr/tests/testthat/test-querySelector-default.R
+/usr/lib64/R/library/selectr/tests/testthat/test-querySelector-xml2.R
+/usr/lib64/R/library/selectr/tests/testthat/test-quoting.R
+/usr/lib64/R/library/selectr/tests/testthat/test-select-XML.R
+/usr/lib64/R/library/selectr/tests/testthat/test-select-xml2.R
+/usr/lib64/R/library/selectr/tests/testthat/test-series.R
+/usr/lib64/R/library/selectr/tests/testthat/test-shakespeare-XML.R
+/usr/lib64/R/library/selectr/tests/testthat/test-shakespeare-xml2.R
+/usr/lib64/R/library/selectr/tests/testthat/test-specificity.R
+/usr/lib64/R/library/selectr/tests/testthat/test-tokenizer.R
+/usr/lib64/R/library/selectr/tests/testthat/test-translation.R
+/usr/lib64/R/library/selectr/tests/testthat/test-xmllang-XML.R
+/usr/lib64/R/library/selectr/tests/testthat/test-xmllang-xml2.R
+/usr/lib64/R/library/selectr/tests/testthat/test-xpath.R
