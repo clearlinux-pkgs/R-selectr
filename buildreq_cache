@@ -1,6 +1,7 @@
 0.4.1
 R-XML
 R-cli
+R-rlang
 R-stringi
 R-withr
 R-xml2
