@@ -4,24 +4,27 @@
 #
 Name     : R-selectr
 Version  : 0.4.1
-Release  : 23
+Release  : 24
 URL      : https://cran.r-project.org/src/contrib/selectr_0.4-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/selectr_0.4-1.tar.gz
 Summary  : Translate CSS Selectors to XPath Expressions
 Group    : Development/Tools
 License  : BSD-3-Clause
-Requires: R-rlang
+Requires: R-R6
+Requires: R-XML
+Requires: R-stringr
+Requires: R-xml2
+BuildRequires : R-R6
 BuildRequires : R-XML
-BuildRequires : R-cli
-BuildRequires : R-rlang
-BuildRequires : R-stringi
-BuildRequires : R-withr
+BuildRequires : R-stringr
 BuildRequires : R-xml2
 BuildRequires : buildreq-R
 
 %description
-# selectr
-[![License (3-Clause BSD)](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause) [![Build Status](https://travis-ci.org/sjp/selectr.svg)](https://travis-ci.org/sjp/selectr) [![CRAN version](https://www.r-pkg.org/badges/version/selectr)](https://cran.r-project.org/package=selectr) [![codecov](https://codecov.io/gh/sjp/selectr/branch/master/graph/badge.svg)](https://codecov.io/gh/sjp/selectr) ![Downloads per month](https://cranlogs.r-pkg.org/badges/last-month/selectr)
+expression. This allows us to use CSS selectors when working with
+  the XML package as it can only evaluate XPath expressions. Also
+  provided are convenience functions useful for using CSS selectors on
+  XML nodes. This package is a port of the Python package 'cssselect'
 
 %prep
 %setup -q -c -n selectr
@@ -30,13 +33,13 @@ BuildRequires : buildreq-R
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552945363
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569294846
 
 %install
-export SOURCE_DATE_EPOCH=1552945363
+export SOURCE_DATE_EPOCH=1569294846
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -65,12 +68,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  selectr || :
+R CMD check --no-manual --no-examples --no-codoc selectr || :
 
 
 %files
