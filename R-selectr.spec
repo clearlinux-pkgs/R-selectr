@@ -4,20 +4,16 @@
 #
 Name     : R-selectr
 Version  : 0.4.2
-Release  : 27
+Release  : 28
 URL      : https://cran.r-project.org/src/contrib/selectr_0.4-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/selectr_0.4-2.tar.gz
 Summary  : Translate CSS Selectors to XPath Expressions
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: R-R6
-Requires: R-XML
 Requires: R-stringr
-Requires: R-xml2
 BuildRequires : R-R6
-BuildRequires : R-XML
 BuildRequires : R-stringr
-BuildRequires : R-xml2
 BuildRequires : buildreq-R
 
 %description
@@ -28,21 +24,22 @@ expression. This allows us to use CSS selectors when working with
 
 %prep
 %setup -q -c -n selectr
+cd %{_builddir}/selectr
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1574318678
+export SOURCE_DATE_EPOCH=1589585189
 
 %install
-export SOURCE_DATE_EPOCH=1574318678
+export SOURCE_DATE_EPOCH=1589585189
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
