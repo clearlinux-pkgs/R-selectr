@@ -4,7 +4,7 @@
 #
 Name     : R-selectr
 Version  : 0.4.2
-Release  : 50
+Release  : 51
 URL      : https://cran.r-project.org/src/contrib/selectr_0.4-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/selectr_0.4-2.tar.gz
 Summary  : Translate CSS Selectors to XPath Expressions
